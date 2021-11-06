@@ -13,7 +13,7 @@ function App() {
   const { user } = useAuthListener();
 
   return (
-    <UserContext.Provider value={user}>
+    <UserContext.Provider value={{ user }}>
       <Router>
         <Suspense fallback={<p>Loading...</p>}>
           <Switch>
