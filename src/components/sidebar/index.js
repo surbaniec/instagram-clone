@@ -20,5 +20,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
-Sidebar.whyDidYouRender = true;
