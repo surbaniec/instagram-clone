@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { getUserByUserId } from '../../services/firebase';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { getSuggestedProfiles } from '../../services/firebase';
@@ -47,5 +46,5 @@ export default Suggestions;
 Suggestions.propTypes = {
   userId: PropTypes.string,
   following: PropTypes.array,
-  loggedInUserDocId: PropTypes.string.isRequired,
+  loggedInUserDocId: PropTypes.string,
 };

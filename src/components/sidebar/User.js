@@ -32,5 +32,3 @@ User.propTypes = {
 };
 
 export default memo(User);
-
-User.whyDidYouRender = true;
