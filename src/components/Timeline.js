@@ -23,7 +23,9 @@ const Timeline = () => {
       ) : photos?.length > 0 ? (
         photos.map((content) => <Post key={content.docId} content={content} />)
       ) : (
-        <p className='text-center text-2xl'>Follow people to see photos</p>
+        <p className='flex justify-center font-bold'>
+          Follow people to see photos
+        </p>
       )}
     </div>
   );
