@@ -91,7 +91,7 @@ export default function Header({
               <p className='mr-10'>
                 <span className='font-bold'>{followerCount}</span>
                 {` `}
-                {followerCount === 1 ? 'follower' : 'followers'}
+                {followerCount === 1 ? 'follower' : 'followers '}
               </p>
               <p className='mr-10'>
                 <span className='font-bold'>{following.length}</span>
