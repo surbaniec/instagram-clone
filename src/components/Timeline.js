@@ -1,34 +1,27 @@
-import React from 'react';
+import { useContext } from 'react';
 import Skeleton from 'react-loading-skeleton';
+import LoggedInUserContext from '../context/logged-in-user';
 import usePhotos from '../hooks/use-photos';
 import Post from './post';
 
-const Timeline = () => {
-  const { photos } = usePhotos();
+export default function Timeline() {
+  const { user } = useContext(LoggedInUserContext);
+
+  const { user: { following } = {} } = useContext(LoggedInUserContext);
+
+  const { photos } = usePhotos(user);
 
   return (
     <div className='container col-span-2'>
-      {!photos ? (
-        <>
-          {[...new Array(4)].map((_, index) => (
-            <Skeleton
-              key={index}
-              count={4}
-              width={640}
-              height={600}
-              className='mb-5'
-            />
-          ))}
-        </>
-      ) : photos?.length > 0 ? (
-        photos.map((content) => <Post key={content.docId} content={content} />)
-      ) : (
+      {following === undefined ? (
+        <Skeleton count={2} width={640} height={500} className='mb-5' />
+      ) : following.length === 0 ? (
         <p className='flex justify-center font-bold'>
-          Follow people to see photos
+          Follow other people to see Photos
         </p>
-      )}
+      ) : photos ? (
+        photos.map((content) => <Post key={content.docId} content={content} />)
+      ) : null}
     </div>
   );
-};
-
-export default Timeline;
+}
